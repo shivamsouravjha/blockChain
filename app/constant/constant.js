@@ -13,13 +13,11 @@ const Eth = {
 };
 
 const fetchEthPrice = {
-    URL: 'https://api.coingecko.com/api/v3/simple/price',
-    IDS: 'ethereum',
-    Currency: 'inr',
-    Name: 'inr-ethereum'
-}
-
-
+  URL: "https://api.coingecko.com/api/v3/simple/price",
+  IDS: "ethereum",
+  Currency: "inr",
+  Name: "inr-ethereum",
+};
 
 module.exports = {
   HTTP,

@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Routes = require("./routes/index");
-const cron = require('node-cron')
+const cron = require("node-cron");
 require("dotenv").config();
 const app = express();
 var cors = require("cors");
-const PriceUploadHelper = new (require('./app/helper/priceUploader'))
+const PriceUploadHelper = new (require("./app/helper/priceUploader"))();
 app.use(express.json());
 
 // removing the CORS error

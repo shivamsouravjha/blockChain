@@ -20,18 +20,22 @@ module.exports = class DataService extends Service {
       throw new Error(error);
     }
   }
-  fetchEthTransactions({page, offset, apikey, address}) {
+  fetchEthTransactions({ page, offset, apikey, address }) {
     const params = {
-        module: constants.Eth.Module,
-        action: constants.Eth.Action,
-        address: address,
-        startblock: constants.Eth.Startblock,
-        endblock: constants.Eth.Endblock,
-        apikey: apikey,
-        page: page,
-        offset: offset,
-        sort: constants.Eth.Sort,
-      };
-      return this.crossPlatformCall(constants.HTTP.GET,constants.Eth.URL,params)
-  };
+      module: constants.Eth.Module,
+      action: constants.Eth.Action,
+      address: address,
+      startblock: constants.Eth.Startblock,
+      endblock: constants.Eth.Endblock,
+      apikey: apikey,
+      page: page,
+      offset: offset,
+      sort: constants.Eth.Sort,
+    };
+    return this.crossPlatformCall(
+      constants.HTTP.GET,
+      constants.Eth.URL,
+      params
+    );
+  }
 };

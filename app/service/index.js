@@ -1,6 +1,5 @@
-
-class Service  {
-  crossPlatformCall = ( method,url,params) => {
+class Service {
+  crossPlatformCall = (method, url, params) => {
     return {
       method: method,
       url: url,

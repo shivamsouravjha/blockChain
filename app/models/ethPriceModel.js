@@ -7,10 +7,9 @@ const CurrencySchema = new schema(
   {
     name: { type: String, unique: true },
 
-        blockchain: { type: String },
-        currency: { type: String },
-        amount: {type: Number},
-
+    blockchain: { type: String },
+    currency: { type: String },
+    amount: { type: Number },
   },
   {
     versionKey: false,
