@@ -1,6 +1,7 @@
-const TransactionAPIRoutes = require('./api/transactionAPI');
-const UserAPIRoutes = require('./api/UserAPI');
+const TransactionAPIRoutes = require("./api/transactionAPI");
+const UserAPIRoutes = require("./api/UserAPI");
 
 module.exports = {
-    UserAPIRoutes,TransactionAPIRoutes
+  UserAPIRoutes,
+  TransactionAPIRoutes,
 };
