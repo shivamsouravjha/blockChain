@@ -1,6 +1,6 @@
 const constants = require("../constant/constant");
 
-class ServiceContoller {
+class Service  {
   getPlatformApiRequestParams = ({ page, offset, apikey, address }) => {
     const params = {
       module: constants.Eth.Module,
@@ -21,4 +21,4 @@ class ServiceContoller {
   };
 }
 
-module.exports = ServiceContoller;
+module.exports = Service;

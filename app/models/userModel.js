@@ -37,4 +37,4 @@ const TranscationSchema = new schema(
 );
 
 TranscationSchema.plugin(mongooseUniqueValidator);
-module.exports = mongoose.model("Report", TranscationSchema);
+module.exports = mongoose.model("transcationSchema", TranscationSchema);
