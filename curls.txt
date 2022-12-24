@@ -1,0 +1,3 @@
+Task1: curl --location --request GET 'localhost:5002/api/transacton/details?page=1&offset=1&apiKey=apiKey&address=address'
+
+Task3: curl --location --request GET 'localhost:5002/api/user/balance?address=address'
