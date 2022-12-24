@@ -1,7 +1,6 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import Routes from './routes/routes'
-import Error from './app/Exceptions/error';
+const express = require('express');
+const mongoose  =  require('mongoose');
+const Routes = require('./routes/index');
 require('dotenv').config();
 const app = express();
 var cors = require('cors')
@@ -11,9 +10,8 @@ app.use(express.json());
 
 // removing the CORS error
 app.use(cors())
-app.use('/api/users', Routes.AccountApiRouter); ///for user commands
-app.use('/api/groups', Routes.GroupApiRouter);  ///for group commands
-app.use('/api/source', Routes.SourceApiRouter);   ////for source commands
+app.use('/api/user', Routes.UserAPIRoutes); ///for user commands
+app.use('/api/transaction', Routes.TransactionAPIRoutes);  ///for group commands
 
 
 app.use((req, res, next) => {
