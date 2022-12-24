@@ -1,11 +1,10 @@
 const express = require('express')
-// const SourceController = require('../app/Controllers/report.js');
+const TransactionController = require('../../app/controller/transactionController');
 
 const TransactionAPIRoutes = express.Router();
 
-// TransactionAPIRoutes.get('/outstanding', (request, response) => {
-//   const reportController = new SourceController(response);
-//   reportController.printOutstanding(request);
-// });
+TransactionAPIRoutes.get('/outstanding', (request, response) => {
+  const transactionController = new TransactionController(response);
+});
 
 module.exports =  TransactionAPIRoutes;

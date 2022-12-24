@@ -1,11 +1,10 @@
 const express = require('express')
-// const SourceController = require('../app/Controllers/report.js');
+const UserController = require('../../app/controller/userController');
 
 const UserAPIRoutes = express.Router();
 
-// UserAPIRoutes.get('/feecollection', (request, response) => {
-//   const reportController = new SourceController(response);
-//   reportController.printFeeCollection(request);
-// });
+UserAPIRoutes.get('/feecollection', (request, response) => {
+  const userController = new UserController(response);
+});
 
 module.exports =  UserAPIRoutes;
