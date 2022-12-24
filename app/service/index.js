@@ -2,11 +2,11 @@
 const constants  = require('../constant/constant');
 
 class ServiceContoller {
-    getPlatformApiRequestParams = ({page,offset,apikey}) => {
+    getPlatformApiRequestParams = ({page,offset,apikey,address}) => {
         const params = {
             module: constants.Eth.Module,
             action: constants.Eth.Action,
-            address: constants.Eth.Address,
+            address: address,
             startblock: constants.Eth.Startblock,
             endblock: constants.Eth.Endblock,
             apikey: apikey,

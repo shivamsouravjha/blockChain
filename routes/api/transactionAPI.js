@@ -3,8 +3,9 @@ const TransactionController = require('../../app/controller/transactionControlle
 
 const TransactionAPIRoutes = express.Router();
 
-TransactionAPIRoutes.get('/transaction', (request, response) => {
+TransactionAPIRoutes.get('/details', (request, response) => {
   const transactionController = new TransactionController(response);
+  transactionController.fetchUserController(request)
 });
 
 module.exports =  TransactionAPIRoutes;

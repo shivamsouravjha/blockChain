@@ -11,7 +11,7 @@ app.use(express.json());
 // removing the CORS error
 app.use(cors())
 app.use('/api/user', Routes.UserAPIRoutes); ///for user commands
-app.use('/api/transaction', Routes.TransactionAPIRoutes);  ///for group commands
+app.use('/api/transacton', Routes.TransactionAPIRoutes);  ///for group commands
 
 
 app.use((req, res, next) => {
@@ -31,9 +31,12 @@ app.use((error, req, res, next) => {          //special 4 term function that let
   
 
 
+
 mongoose
     .connect(
-      process.env.mongodb
+      `mongodb://${process.env.name}:${process.env.password}@cluster0-shard-00-00.dm1xw.mongodb.net:27017,cluster0-shard-00-01.dm1xw.mongodb.net:27017,cluster0-shard-00-02.dm1xw.mongodb.net:27017/${process.env.db}?ssl=true&replicaSet=atlas-x6eag6-shard-0&authSource=admin&retryWrites=true&w=majority`,
+      { useNewUrlParser: true, useUnifiedTopology: true, }
+      
     )
     .then(() => {
       console.log('listening at port',process.env.PORT || 5002 )
