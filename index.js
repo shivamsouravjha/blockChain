@@ -1,16 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Routes = require("./routes/index");
+const cron = require('node-cron')
 require("dotenv").config();
 const app = express();
 var cors = require("cors");
-
+const PriceUploadHelper = new (require('./app/helper/priceUploader'))
 app.use(express.json());
 
 // removing the CORS error
 app.use(cors());
 app.use("/api/user", Routes.UserAPIRoutes); ///for user commands
 app.use("/api/transacton", Routes.TransactionAPIRoutes); ///for group commands
+
+cron.schedule("* */10 * * * *", PriceUploadHelper.getPlatformApiRequestParams);
 
 app.use((req, res, next) => {
   const error = new Error("Could not find this route.", 404); ///Incase of not having a route
