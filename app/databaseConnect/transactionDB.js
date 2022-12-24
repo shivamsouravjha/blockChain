@@ -22,8 +22,7 @@ module.exports = class DataRepository {
   }
   async saveCurrency(name, blockchain, currency,amount) {
     try {
-console.log(name,blockchain,currency,amount)
-      let resp =  await EthPriceModel.findOne({ name: name });
+      let resp =  await this.fetchCurrency(name);
       if(resp){
         resp =await EthPriceModel.updateMany(
           {name: name , blockchain: blockchain, currency: currency, amount: amount },
@@ -41,6 +40,14 @@ console.log(name,blockchain,currency,amount)
   async fetchUserData(address) {
     try {
       let resp = await TransactionModel.findOne({ address: address });
+      return resp;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async fetchCurrency(name) {
+    try {
+      let resp = await EthPriceModel.findOne({ name: name });
       return resp;
     } catch (error) {
       throw error;

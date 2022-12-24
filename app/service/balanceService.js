@@ -1,6 +1,6 @@
 const Service = require("./index");
 const Database = require("../databaseConnect/transactionDB");
-const axios = require("axios");
+const constants = require("../constant/constant");
 
 module.exports = class BalanceService extends  Service {
   constructor(response) {
@@ -22,7 +22,9 @@ module.exports = class BalanceService extends  Service {
           value += parseInt(response.transaction[i].value, 10);
         }
       }
-      return value;
+      const price = await this.database.fetchCurrency(constants.fetchEthPrice.Name);
+
+      return {price:price.amount,value:value};
     } catch (error) {
       throw new Error(error);
     }

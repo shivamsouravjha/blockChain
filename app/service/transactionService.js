@@ -14,7 +14,7 @@ module.exports = class DataService extends Service {
       const response = await axios(
         this.fetchEthTransactions({ page, offset, apiKey, address })
       );
-      await this.database.uploadTransaction(response.data.result, address); //made synchronous so that response can be sent and data b uploaded in background
+      await this.database.uploadTransaction(response.data.result, address);
       return response.data.result;
     } catch (error) {
       throw new Error(error);

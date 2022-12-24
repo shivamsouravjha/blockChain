@@ -12,7 +12,7 @@ module.exports = class UserController extends Controller {
       const response = await this.service.fetchDataService({
         address,
       });
-      this.sendResponse({walletBalance: response});
+      this.sendResponse(response);
     } catch (error) {
       this.handleException(error);
     }
