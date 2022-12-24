@@ -1,9 +1,39 @@
-import * as Controller from './index';
+const Controller = require('./index');
 const fs = require('fs');
+const axios =  require('axios');
+const constants  = require('../constant/constant');
+const getPlatformApiRequestParams = ({page,offset,sort}) => {
+    const params = {
+        module: constants.Eth.Module,
+        action: constants.Eth.Action,
+        address: process.env.Address,
+        startblock: constants.Eth.Startblock,
+        endblock: constants.Eth.Endblock,
+        apikey: process.env.apikey,
+        page: page,
+        offset:offset,
+        sort: sort
+    }
+    return {
+      method: constants.HTTP.GET,
+      url:constants.Eth.URL,
+      params: params,
+    };
+  };
 
-export default class UserController extends Controller {
+module.exports = class UserController extends Controller {
   constructor(response) {
     super(response);
-    this.service = new ReportService();
   }
+  async fetchUserController(request) {
+    try {
+        const {page, offset, sort} = request.query;
+        const response= await axios(getPlatformApiRequestParams({page, offset, sort}));
+        this.sendResponse(response.data.result);
+    } catch (error) {
+        console.log(error)
+        this.handleException(error)
+    }
+  }
+  
 }

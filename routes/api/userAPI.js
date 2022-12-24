@@ -3,8 +3,9 @@ const UserController = require('../../app/controller/userController');
 
 const UserAPIRoutes = express.Router();
 
-UserAPIRoutes.get('/feecollection', (request, response) => {
+UserAPIRoutes.get('/userDetails', (request, response) => {
   const userController = new UserController(response);
+  userController.fetchUserController(request)
 });
 
 module.exports =  UserAPIRoutes;

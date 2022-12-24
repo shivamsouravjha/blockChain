@@ -3,7 +3,7 @@ const TransactionController = require('../../app/controller/transactionControlle
 
 const TransactionAPIRoutes = express.Router();
 
-TransactionAPIRoutes.get('/outstanding', (request, response) => {
+TransactionAPIRoutes.get('/transaction', (request, response) => {
   const transactionController = new TransactionController(response);
 });
 
